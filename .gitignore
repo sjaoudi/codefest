@@ -11,7 +11,8 @@ healthphilly/__init__.py
 healthphilly/__pycache__/
 healthphilly/__init__.py
 healthphilly/__pycache__/
-healthphilly/migrations/
+codefest/healthphilly/migrations/*
+codefest/healthphilly/migrations/
 codefest/settings.py
 *.pyc
 *.txt
