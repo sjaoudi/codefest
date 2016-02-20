@@ -29,6 +29,7 @@ def parse_condoms(reader):
 			#city=row[7],
 			zipcode=row[8],
 			tag = "condom_distributor"
+
 			#add pub date with "now" later
 			)
 
@@ -40,7 +41,7 @@ def parse_healthystart(reader):
 	for row in reader:
 		#object, boolean(if object was created)
 
-		obj, created = CondomDistributor.objects.get_or_create(
+		obj, created = Location.objects.get_or_create(
 			longitude=row[0]
 			latitude=row[1],
 			#object_id=row[2],
@@ -52,6 +53,7 @@ def parse_healthystart(reader):
 			phone=row[8],
 			days_open=row[9]
 			hours=row[10],
+                        tag = "CRC"
 		
 			#add pub date with "now" later
 			)
@@ -76,6 +78,7 @@ def parse_WIC(reader):
 			phone=row[8],
 			days_open=row[9]
 			hours=row[10],
+                        tag = "WIC"
 		
 			#add pub date with "now" later
 			)
