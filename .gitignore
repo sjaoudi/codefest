@@ -1,10 +1,19 @@
-*.pyc
 
 # Databases #
-*.sql
-*.sqlite
+db.sqlite3
 
 # OS generated files #
 .DS_Store
 .DS_Store?
 ._*
+
+healthphilly/__init__.py
+healthphilly/__pycache__/
+healthphilly/__init__.py
+healthphilly/__pycache__/
+healthphilly/migrations/
+codefest/settings.py
+*.pyc
+*.txt
+*.csv
+.DS_Store
