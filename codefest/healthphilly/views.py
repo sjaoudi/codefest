@@ -24,12 +24,12 @@ def searchpage(request):
     condom_distributors = all_locations.filter(tag="condoms")
     healthystart = all_locations.filter(tag="CRC")
     wic_office = all_locations.filter(tag="WIC")
-    
+
     jsonobj = {}
     jsonobj['condom_distributors'] = condom_distributors
     jsonobj['healthystart'] = healthystart
     jsonobj['wic_office'] = wic_office
-    
+
 
     return render(request, 'listing.html', {'jsonobj': jsonobj})
 
@@ -42,7 +42,7 @@ class SearchView(View):
         condom_distributors = all_locations.filter(tag="condoms")
         healthystart = all_locations.filter(tag="CRC")
         wic_office = all_locations.filter(tag="WIC")
-        
+
         jsonobj = {}
         jsonobj['condom_distributors'] = condom_distributors
         jsonobj['healthystart'] = healthystart
@@ -88,3 +88,6 @@ def map(request):
     })
     return render_to_response('map.html', context_instance = context)
 
+def credits(request):
+    template = loader.get_template('credits.html')
+    return HttpResponse(template.render(request))

@@ -67,3 +67,7 @@ html, body {
   padding: 2em;
   color: black;
 }
+.wrapper {
+  width: 60%;
+  margin:auto;
+}
