@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.views.generic.base import View
 
+from .parser import parsefile, parse_condoms, parse_healthystart
 from .models import Location
 
 def index(request):
@@ -13,6 +15,9 @@ def about(request):
     return HttpResponse(template.render(request))
 
 def searchpage(request):
+
+    parsefile("healthphilly/condom_distribution_sites.csv")
+
     all_locations = Location.objects.all()
     condom_distributors = all_locations.filter(tag="condom_distributor")
     healthystart = all_locations.filter(tag="healthystart")
@@ -32,3 +37,5 @@ def listing(request):
 def detail(request):
     template = loader.get_template('detail.html')
     return HttpResponse(template.render(request))
+
+

@@ -10,9 +10,9 @@ class Location(models.Model):
 	address = models.CharField(default='', max_length=300)
 	zipcode = models.CharField(default='', max_length=300)
 	tag = models.CharField(default='', max_length=300)
-	other = models.CharField(default='', max_length=300)
+	other = models.CharField(default='', max_length=290)
 
-	pub_date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField('date published', auto_now_add=True)
 
 	def __str__(self):
 		return self.site_name
