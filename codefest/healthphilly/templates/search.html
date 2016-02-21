@@ -233,20 +233,35 @@
     		<table class="table table-striped table-hover ">
       <thead>
         <tr>
-          <th>Map Location:</th>
           <th>Name:</th>
           <th>Address:</th>
           <th>Category:</th>
+          <th>Zip Code:</th>
         </tr>
       </thead>
       <tbody>
-    		<!-- for loop over result -->
-        <tr>
-          <td> {{ result.pin }}</td>
-          <td> <a href="/">{{ result.name }}</a></td>
-          <td>{{ result.address }}</td>
-          <td>{{ result.category }}</td>
-        </tr>
+    		{% for location in locations %}
+          {% if location.tag == "condoms"%}
+          <tr class="info">
+          {% elif location.tag == "CRC" %}
+          <tr class="success">
+          {% elif location.tag == "HIV" %}
+          <tr class="warning">
+          {% elif location.tag == "health_center" %}
+          <tr>
+          {% elif location.tag == "planned_parenthood" %}
+          <tr class="active">
+          {% elif location.tag == "assault" %}
+          <tr class="danger">
+          {% else %}
+          <tr>
+          {% endif %}
+            <td> <a href="/">{{ location.site_name }}</a></td>
+            <td>{{ location.address }}</td>
+            <td>{{ location.phone_number }}</td>
+            <td>{{ location.zipcode }}</td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
 
