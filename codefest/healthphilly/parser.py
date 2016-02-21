@@ -12,7 +12,7 @@ def get_url(query):
     	search = json ['responseData'] ['results']
     else:
     	search = [{'url':""}]
-    return search[0]['url']   
+    return search[0]['url']
 
 def parsefile(path):
 	with open(path, 'r') as f:
@@ -34,12 +34,12 @@ def parsefile(path):
                         elif path == "healthphilly/Planned_Parenthood.csv":
                             parse_custom(readerlines[1:], "planned_parenthood")
 
-def parse_condoms(reader):		
+def parse_condoms(reader):
 	for row in reader:
                 #object, boolean(if object was created)
                 url = get_url(row[3])
                 phone = 'See website'
-                
+
 		obj, created = Location.objects.get_or_create(
 			longitude=row[0],
 			latitude=row[1],
@@ -81,7 +81,7 @@ def parse_healthystart(reader):
                         tag="CRC",
                         website=url,
 
-                        pub_data=timezone.now()
+                        pub_date=timezone.now()
 		)
                 if created and not Location.objects.get(site_name=obj.site_name).exists():
                         obj.save()
@@ -109,7 +109,7 @@ def parse_WIC(reader):
                     site_name=row[13],
                     tag="WIC",
                     website=url,
-                                            
+
                     pub_data=timezone.now()
 		)
                 if created and not Location.objects.get(site_name=obj.site_name).exists():
@@ -117,7 +117,7 @@ def parse_WIC(reader):
 
 
 
-def parse_HIV(reader):		
+def parse_HIV(reader):
 	for row in reader:
 		#object, boolean(if object was created)
                 url = get_url(row[3])
@@ -140,7 +140,7 @@ def parse_HIV(reader):
 			#phone_number2=row[8],
 			#special_focus=row[9],
 			#special_hours=row[10],
-			hours=hours_str, 
+			hours=hours_str,
                         address=row[11],
                         tag="HIV",
 			other=other_val,
@@ -155,7 +155,7 @@ def parse_HIV(reader):
 
 
 
-def parse_centers(reader):		
+def parse_centers(reader):
 	for row in reader:
                 #object, boolean(if object was created)
                 hours_str = 'See website'
@@ -181,7 +181,7 @@ def parse_centers(reader):
 
 
 
-def parse_custom(reader, _tag):		
+def parse_custom(reader, _tag):
 	for row in reader:
 		#object, boolean(if object was created)
                 hours_str = 'See website'
@@ -194,7 +194,7 @@ def parse_custom(reader, _tag):
                         hours=hours_str,
                         address=row[5],
                         zipcode=row[6],
-                        website=row[7], 
+                        website=row[7],
                         tag=_tag,
 
                         pub_data=timezone.now()
