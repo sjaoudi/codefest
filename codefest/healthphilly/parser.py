@@ -8,8 +8,11 @@ def get_url(query):
     query = urllib.urlencode ({'q' : query})
     response = urllib.urlopen ( 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&' + query ).read()
     json = m_json.loads (response)
-    search = json ['responseData'] ['results']
-    print search
+    if json['responseData']:
+    	search = json ['responseData'] ['results']
+    else:
+    	search = [{'url':"http://comcast.com/"}]
+    #print search
     return search[0]['url']   
 
 def parsefile(path):
@@ -32,7 +35,7 @@ def parsefile(path):
 def parse_condoms(reader):		
 	for row in reader:
                 #object, boolean(if object was created)
-                url = get_url(row[3])
+    #            url = get_url(row[3])
                 phone = 'See website'
                 
 		obj, created = Location.objects.get_or_create(
@@ -47,9 +50,9 @@ def parse_condoms(reader):
 			#city=row[7],
 			zipcode=row[8],
 			tag = "condoms",
-                        website=url,
+                  #      website=url,
 
-                        pub_data=timezone.now()
+                        pub_date=timezone.now()
 		)
 
 		if created:
