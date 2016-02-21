@@ -17,6 +17,8 @@ with open(path) as f:
 		parse_HIV(reader[1:])
 	else if len(reader[0]) == 10:
 		parse_centers(reader[1:])
+	else if len(reader[0]) == 8:
+		parse_pp(reader[1:])
 
 def parse_condoms(reader):		
 	for row in reader:
@@ -33,7 +35,7 @@ def parse_condoms(reader):
 			#state=row[6],
 			#city=row[7],
 			zipcode=row[8],
-			tag = "condom"
+			tag = "condoms"
 
 			#add pub date with "now" later
 			)
@@ -129,7 +131,7 @@ def parse_centers(reader):
 			#object_id=row[2],
 			site_name=row[3],
 			#organization=row[4],
-			#zipcode=row[5],
+			zipcode=row[5],
 			phone_number=row[6],
 			#website=row[7], #### IMPLEMENT THIS
                         #phone_number2=row[8],
@@ -137,7 +139,28 @@ def parse_centers(reader):
                         #special_hours=row[10],
                         #hours= ### NEED THIS (from google graph?)
 			address=row[11],
-			tag="center"
+			tag="health_center"
+
+			#add pub date with "now" later
+			)
+
+		if created:
+			obj.save()
+
+
+def parse_pp(reader):		
+	for row in reader:
+		#object, boolean(if object was created)
+		obj, created = Location.objects.get_or_create(
+			longitude=row[0]
+			latitude=row[1],
+			site_name=row[3],
+			phone_number=row[4],
+                        #hours= ### NEED THIS (from google graph?)
+			address=row[5],
+			zipcode=row[6],
+			#website=row[7], #### IMPLEMENT THIS
+			tag="planned_parenthood"
 
 			#add pub date with "now" later
 			)
