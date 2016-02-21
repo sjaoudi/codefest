@@ -35,8 +35,9 @@ def searchpage(request):
 
 class SearchView(View):
     def get(self, request):
-        print dir(request.POST)
-        parsefile("healthphilly/condom_distribution_sites.csv")
+
+        if not Location.objects.filter(tag="condoms"):
+            parsefile("healthphilly/condom_distribution_sites.csv")
 
         all_locations = Location.objects.all()
         condom_distributors = all_locations.filter(tag="condoms")
@@ -54,7 +55,28 @@ class SearchView(View):
         clicked_obj = request.POST.get("strID")
         is_checked = request.POST.get("state")
 
-        print is_checked
+        # context = {}
+        # if clicked_obj == "condom":
+        #     condom_distributors = Location.objects.all()
+        #     context["locations"] = condom_distributors
+        #     # if is_checked == "1":
+        #     #     context["add"] = True
+        #     # else:
+        #     #     context["add"] = False
+
+        #     request_context = RequestContext(request, context)
+        # template = loader.get_template('map.html')
+        locations = Location.objects.all()
+        context = RequestContext(request, {
+            'locations': locations,
+        })
+        return render_to_response('search.html', context_instance = context)
+        
+        # return render_to_response('search.html', context_instance = request_context)
+        #print clicked_obj
+
+
+
 
 """
     locations = {}

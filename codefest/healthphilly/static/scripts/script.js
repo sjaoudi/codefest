@@ -10,7 +10,7 @@ $(document).ready(function() {
 		if ($(this).is(":checked")) {
 			console.log("checked");
 			$.ajax({
-				url: '/search',
+				url: 'search',
 				type: 'POST',
 				data: { "strID":hitID, "state":"1" }
 			});
