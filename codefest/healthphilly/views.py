@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
+from django.template import loader, RequestContext
+from django.shortcuts import render_to_response
 from django.views.generic.base import View
+from django.core import serializers
 
 from .parser import parsefile, parse_condoms, parse_healthystart
 from .models import Location
@@ -55,4 +57,9 @@ def detail(request):
 
 def map(request):
     template = loader.get_template('map.html')
-    return HttpResponse(template.render(request))
+    locations = Location.objects.all()
+    context = RequestContext(request, {
+        'locations': locations,
+    })
+    return render_to_response('map.html', context_instance = context)
+
