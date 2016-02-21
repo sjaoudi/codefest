@@ -110,7 +110,7 @@ def parse_WIC(reader):
                     tag="WIC",
                     website=url,
 
-                    pub_data=timezone.now()
+                    pub_date=timezone.now()
 		)
                 if created and not Location.objects.filter(site_name=obj.site_name).exists():
                         obj.save()
@@ -146,7 +146,7 @@ def parse_HIV(reader):
 			other=other_val,
                         website=url,
 
-                        pub_data=timezone.now()
+                        pub_date=timezone.now()
 		)
 
 
@@ -173,7 +173,7 @@ def parse_centers(reader):
                         address=row[9],
                         tag="health_center",
 
-                        pub_data=timezone.now()
+                        pub_date=timezone.now()
 		)
 
                 if created and not Location.objects.filter(site_name=obj.site_name).exists():
@@ -197,7 +197,7 @@ def parse_custom(reader, _tag):
                         website=row[7],
                         tag=_tag,
 
-                        pub_data=timezone.now()
+                        pub_date=timezone.now()
 		)
 
                 if created and not Location.objects.filter(site_name=obj.site_name).exists():
