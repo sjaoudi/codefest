@@ -57,7 +57,7 @@ def parse_condoms(reader):
                         pub_date=timezone.now()
 		)
 
-                if created and not Location.objects.get(site_name=obj.site_name).exists():
+                if created and not Location.objects.filter(site_name=obj.site_name).exists():
                         obj.save()
 
 
@@ -83,7 +83,7 @@ def parse_healthystart(reader):
 
                         pub_date=timezone.now()
 		)
-                if created and not Location.objects.get(site_name=obj.site_name).exists():
+                if created and not Location.objects.filter(site_name=obj.site_name).exists():
                         obj.save()
 
 
@@ -112,7 +112,7 @@ def parse_WIC(reader):
 
                     pub_data=timezone.now()
 		)
-                if created and not Location.objects.get(site_name=obj.site_name).exists():
+                if created and not Location.objects.filter(site_name=obj.site_name).exists():
                         obj.save()
 
 
@@ -150,7 +150,7 @@ def parse_HIV(reader):
 		)
 
 
-                if created and not Location.objects.get(site_name=obj.site_name).exists():
+                if created and not Location.objects.filter(site_name=obj.site_name).exists():
                         obj.save()
 
 
@@ -176,7 +176,7 @@ def parse_centers(reader):
                         pub_data=timezone.now()
 		)
 
-                if created and not Location.objects.get(site_name=obj.site_name).exists():
+                if created and not Location.objects.filter(site_name=obj.site_name).exists():
                         obj.save()
 
 
@@ -200,5 +200,5 @@ def parse_custom(reader, _tag):
                         pub_data=timezone.now()
 		)
 
-                if created and not Location.objects.get(site_name=obj.site_name).exists():
+                if created and not Location.objects.filter(site_name=obj.site_name).exists():
                         obj.save()
