@@ -11,8 +11,7 @@ def get_url(query):
     if json['responseData']:
     	search = json ['responseData'] ['results']
     else:
-    	search = [{'url':"http://comcast.com/"}]
-    #print search
+    	search = [{'url':""}]
     return search[0]['url']   
 
 def parsefile(path):
@@ -30,12 +29,15 @@ def parsefile(path):
 		elif len(readerlines[0]) == 10:
 			parse_centers(readerlines[1:])
 		elif len(readerlines[0]) == 8:
-			parse_pp(readerlines[1:])
+                        if path == "healthphilly/Assault.csv":
+                            parse_custom(readerlines[1:], "assault")
+                        elif path == "healthphilly/Planned_Parenthood.csv":
+                            parse_custom(readerlines[1:], "planned_parenthood")
 
 def parse_condoms(reader):		
 	for row in reader:
                 #object, boolean(if object was created)
-    #            url = get_url(row[3])
+                url = get_url(row[3])
                 phone = 'See website'
                 
 		obj, created = Location.objects.get_or_create(
@@ -50,7 +52,7 @@ def parse_condoms(reader):
 			#city=row[7],
 			zipcode=row[8],
 			tag = "condoms",
-                  #      website=url,
+                        website=url,
 
                         pub_date=timezone.now()
 		)
@@ -87,9 +89,10 @@ def parse_healthystart(reader):
 def parse_WIC(reader):
 	for row in reader:
 		#object, boolean(if object was created)
-                url = get_url(row[12])
+                url = get_url(row[13])
+                hours_str = 'See website'
 
-		extended_address = row[13] + ' ' + row[14]
+		extended_address = row[14] + ' ' + row[15]
 		obj, created = Location.objects.get_or_create(
                     longitude=row[0],
                     latitude=row[1],
@@ -97,11 +100,11 @@ def parse_WIC(reader):
                     address=extended_address,
                     #state=row[6],
                     #city=row[7],
-                    phone_number=row[8],
+                    phone_number=row[17],
                     #days_open=row[9]
-                    hours=row[10],
-                    zipcode=row[11],
-                    site_name=row[12],
+                    hours=hours_str,
+                    zipcode=row[12],
+                    site_name=row[13],
                     tag="WIC",
                     website=url,
                                             
@@ -161,11 +164,8 @@ def parse_centers(reader):
                         zipcode=row[5],
                         phone_number=row[6],
                         website=row[7],
-			#phone_number2=row[8],
-			#special_focus=row[9],
-			#special_hours=row[10],
 			hours=hours_str,
-                        address=row[11],
+                        address=row[9],
                         tag="health_center",
 
                         pub_data=timezone.now()
@@ -175,7 +175,7 @@ def parse_centers(reader):
 			obj.save()
 
 
-def parse_pp(reader):		
+def parse_custom(reader, _tag):		
 	for row in reader:
 		#object, boolean(if object was created)
                 hours_str = 'See website'
@@ -189,7 +189,7 @@ def parse_pp(reader):
                         address=row[5],
                         zipcode=row[6],
                         website=row[7], 
-                        tag="planned_parenthood",
+                        tag=_tag,
 
                         pub_data=timezone.now()
 		)
