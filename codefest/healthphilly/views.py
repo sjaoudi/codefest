@@ -23,7 +23,6 @@ def searchpage(request):
           curr_location["Tag"] = location.tag
           curr_location["Other"] = location.other
           locations[location.site_name] = curr_location
-    #returns: {"bobs condoms": {"longitude":123.456,"Latitude":...,
     return render(request, 'search.html', {"loc": locations})
 
 def listing(request):
