@@ -51,7 +51,7 @@ def searchpage(request):
 
 class SearchView(View):
     def get(self, request):
-
+        print "IN GET!"
         all_locations = Location.objects.all()
         condom_distributors = all_locations.filter(tag="condoms")
         healthystart = all_locations.filter(tag="CRC")
@@ -65,6 +65,7 @@ class SearchView(View):
         return render(request, 'search.html', {'jsonobj': jsonobj})
 
     def post(self, request):
+        print "IN POST"
         clicked_obj = request.POST.get("strID")
         is_checked = request.POST.get("state")
 
@@ -83,7 +84,7 @@ class SearchView(View):
         # context = RequestContext(request, {
         #     'locations': locations,
         # })
-        return render(request, 'search.html', context)
+        #return render(request, 'search.html', context)
         
 
         # return render_to_response('search.html', context_instance = request_context)
