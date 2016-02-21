@@ -32,3 +32,7 @@ def listing(request):
 def detail(request):
     template = loader.get_template('detail.html')
     return HttpResponse(template.render(request))
+
+def map(request):
+    template = loader.get_template('map.html')
+    return HttpResponse(template.render(request))
