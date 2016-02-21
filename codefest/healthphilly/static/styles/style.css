@@ -1,27 +1,30 @@
 
 html, body {
   height: 100%;
-  width: 100%;
 }
 
 .full-bg {
-  height: 100%;
-  width: 100%;
   background-image: url('/static/img/leftloveedit.jpg');
-  background-size: cover;
   min-height: 100%;
+  background-size:cover;
   color: white;
 }
+
 .space {
-  width: 70%;
+  width: 60%;
   float:right;
+}
+.mini {
+  text-align: center;
+  padding: 3em;
 }
 .top {
   text-align: right;
   background-color: transparent;
 }
-.jumbotron .middle {
+.middle {
   padding: 2em;
+  background-color: transparent;
 }
 .navbar {
   margin-bottom: 0;
@@ -54,4 +57,13 @@ html, body {
 .left {
   text-align: left;
   border-top: 1px solid #596a7b;
+}
+.footer {
+  background-color: #ebebeb;
+}
+.footer p {
+  margin-bottom: 0;
+  font-size: .75em;
+  padding: 2em;
+  color: black;
 }
