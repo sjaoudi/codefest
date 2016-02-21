@@ -42,7 +42,7 @@ def parse_condoms(reader):
 			site_name=row[3],
 			hours=row[4],
 			address=row[5],
-                        phone_number=phone
+                        phone_number=phone,
 			#state=row[6],
 			#city=row[7],
 			zipcode=row[8],
