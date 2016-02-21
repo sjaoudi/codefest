@@ -182,7 +182,7 @@
               </div>
             </div>
 
-      <!-- <button type="submit" class="btn btn-lg btn-default">Submit</button> -->
+      <button type="submit" class="btn btn-lg btn-default">Submit</button>
 
     </form>
   </div>
@@ -205,10 +205,10 @@
             // leaflet api here
             map.setView([39.954683, -75.14735], 13);
             //L.marker([50.5, 30.5]).addTo(map);
-           
+
             {{ locations }}
             {% for loc in locations %}
-            {% csrf_token %} 
+            {% csrf_token %}
             L.marker([{{loc.latitude}}, {{loc.longitude}}], {riseOnHover: true}).addTo(map)
                 .bindPopup("<b>{{loc.site_name}}</b><br>{{loc.hours}}")
                 .openPopup();

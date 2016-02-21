@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader, RequestContext
@@ -78,14 +79,16 @@ class SearchView(View):
             else:
                 context["add"] = False
 
+        locations = Location.objects.all()
+        context = RequestContext(request, {
+            'locations': locations,
+        })
         print context
-        # request_context = RequestContext(request, context)
-        # locations = Location.objects.all()
-        # context = RequestContext(request, {
-        #     'locations': locations,
-        # })
-        #return render(request, 'search.html', context)
+
         
+        return render(request, 'search.html', context)
+        # return render(request, 'search.html', context)
+
 
         # return render_to_response('search.html', context_instance = request_context)
         #print clicked_obj
