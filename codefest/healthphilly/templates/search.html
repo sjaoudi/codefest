@@ -215,7 +215,7 @@
     	</script>
 
     	<div id="map"></div>
-    
+
 	    {% leaflet_map "main" callback="main_map_init" %}
 
     	<div class="result">
@@ -230,16 +230,13 @@
         </tr>
       </thead>
       <tbody>
-
     		<!-- for loop over result -->
         <tr>
-
           <td> {{ result.pin }}</td>
           <td> <a href="/">{{ result.name }}</a></td>
           <td>{{ result.address }}</td>
           <td>{{ result.category }}</td>
         </tr>
-
       </tbody>
     </table>
 
