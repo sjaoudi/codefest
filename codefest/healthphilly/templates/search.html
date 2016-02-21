@@ -3,6 +3,33 @@
 
 {% block content %}
 <div class="container searchy">
+  <form id="choices">
+    <h1>Search by Categories</h1>
+    <p>Select all desired categories and hit submit to search.</p>
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="" id="condom-distributors">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <h5>Condom Distributors</h5>
+                </a>
+              </input>
+            </label>
+          </div>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          Street location and hours of stores and organizations that distribute PDPH Freedom Condom-branded condoms.
+        </div>
+      </div>
+    </div>
+
+
   <div class="col-md-6">
     <form>
       <h1>Search by Categories</h1>

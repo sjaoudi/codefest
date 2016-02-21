@@ -1,3 +1,13 @@
+<h1>{{ jsonobj.condom_distributors }}</h1>
+{% for c_dist in jsonobj.condom_distributors %}
+<ul>
+	<li>{{ c_dist.site_name }}</li>
+	<li>{{ c_dist.phone_number }}</li>
+	<li>{{ c_dist.hours }}</li>
+	<li>{{ c_dist.address }}</li>
+	<li>{{ c_dist.zipcode }}</li>
+</ul>
+{% endfor %}
 
 {% extends 'base.html' %}
 
