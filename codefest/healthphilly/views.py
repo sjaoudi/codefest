@@ -22,6 +22,8 @@ def about(request):
         parsefile("healthphilly/Healthy_Start_CRCs.csv")
     if not Location.objects.filter(tag="WIC"):
         parsefile("healthphilly/WIC_Offices.csv")
+    if not Location.objects.filter(tag="health_center"):
+        parsefile("healthphilly/Health_Centers.csv")
     if not Location.objects.filter(tag="HIV"):
         parsefile("healthphilly/RW_HIV_Treatment_Centers.csv")
     if not Location.objects.filter(tag="assault"):
