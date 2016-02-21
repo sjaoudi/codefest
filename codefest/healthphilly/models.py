@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Location(models.Model):
 	longitude = models.CharField(default='', max_length=300)
 	latitude = models.CharField(default='', max_length=300)
@@ -17,4 +16,3 @@ class Location(models.Model):
 
 	def __str__(self):
 		return self.site_name
-
