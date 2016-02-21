@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^about', views.about, name='about'),
     url(r'^search', views.SearchView.as_view(), name='search'),
     url(r'^map', views.map, name='map'),
-    url(r'^listing', views.listing, name="listing"),
+    url(r'^credits', views.credits, name='credits'),
 ]
