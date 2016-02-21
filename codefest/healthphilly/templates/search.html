@@ -2,6 +2,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div class="checkbox">
+  <label>
+    <input type="checkbox" value="" id="test">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="test1">
+        <h5>Condom Distributors</h5>
+      </a>
+    </input>
+  </label>
+</div>
+
+
 <div class="container searchy">
   <form id="choices">
     <h1>Search by Categories</h1>
@@ -13,7 +25,7 @@
         <h4 class="panel-title">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="" id="condom-distributors">
+              <input type="checkbox" value="condom" id="condom">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   <h5>Condom Distributors</h5>
                 </a>
