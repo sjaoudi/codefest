@@ -4,6 +4,7 @@ from django.template import loader, RequestContext
 from django.shortcuts import render_to_response
 from django.views.generic.base import View
 from django.core import serializers
+from .forms import SearchForm
 
 from .parser import parsefile, parse_condoms, parse_healthystart
 from .models import Location
@@ -47,6 +48,8 @@ def searchpage(request):
 
     return render(request, 'listing.html', {'jsonobj': jsonobj})
 
+class SearchView()
+
 class SearchView(View):
     def get(self, request):
 
@@ -82,7 +85,7 @@ class SearchView(View):
             'locations': locations,
         })
         return render_to_response('search.html', context_instance = context)
-        
+
         # return render_to_response('search.html', context_instance = request_context)
         #print clicked_obj
 
