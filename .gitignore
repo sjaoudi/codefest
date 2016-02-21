@@ -13,6 +13,7 @@ healthphilly/__init__.py
 healthphilly/__pycache__/
 codefest/healthphilly/migrations/*
 codefest/healthphilly/migrations/
+codefest/db.sqlite3
 codefest/settings.py
 *.pyc
 *.txt
