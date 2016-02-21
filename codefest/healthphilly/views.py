@@ -1,11 +1,10 @@
-
+# This Python file uses the following encoding: utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader, RequestContext
 from django.shortcuts import render_to_response
 from django.views.generic.base import View
 from django.core import serializers
-
 
 from .parser import parsefile, parse_condoms, parse_healthystart
 from .models import Location
@@ -49,7 +48,6 @@ def searchpage(request):
 
     return render(request, 'listing.html', {'jsonobj': jsonobj})
 
-
 class SearchView(View):
     def get(self, request):
         print "IN GET!"
@@ -80,14 +78,13 @@ class SearchView(View):
                 context["add"] = False
 
         locations = Location.objects.all()
-        context = RequestContext(request, {
-            'locations': locations,
-        })
-        print context
+        #print context
+        #print type(request) #WSGI
+        #print type("search.html") #str
+        #print type(context) #RequestContext
 
-        
-        return render(request, 'search.html', context)
         # return render(request, 'search.html', context)
+        return render(request, 'search.html', context)
 
 
         # return render_to_response('search.html', context_instance = request_context)
