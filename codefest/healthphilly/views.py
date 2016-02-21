@@ -65,13 +65,12 @@ class SearchView(View):
             #     context["add"] = False
 
         print context
-        request_context = RequestContext(request, context)
-        template = loader.get_template('map.html')
+        # request_context = RequestContext(request, context)
         # locations = Location.objects.all()
         # context = RequestContext(request, {
         #     'locations': locations,
         # })
-        return render_to_response('search.html', context_instance = request_context)
+        return render(request, 'search.html', context)
         
         # return render_to_response('search.html', context_instance = request_context)
         #print clicked_obj

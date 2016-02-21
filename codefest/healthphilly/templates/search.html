@@ -193,6 +193,7 @@
 
 <h1>HELLO</h1>
 {% for loc in locations %}
+  <h1>hello</h1>
   {{ loc }}
 {% endfor %}
 
@@ -202,10 +203,10 @@
             // leaflet api here
             map.setView([39.954683, -75.14735], 13);
             //L.marker([50.5, 30.5]).addTo(map);
-            <h1>HELLO</h1>
-            <h1>{{ locations }}</h1>
+           
+            {{ locations }}
             {% for loc in locations %}
-            <h1>{{loc.hours}}</h1>
+            {% csrf_token %} 
             L.marker([{{loc.latitude}}, {{loc.longitude}}], {riseOnHover: true}).addTo(map)
                 .bindPopup("<b>{{loc.site_name}}</b><br>{{loc.hours}}")
                 .openPopup();

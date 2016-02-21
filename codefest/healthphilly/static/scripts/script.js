@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	console.log("listening!");
+	$.ajaxSetup({
+   		headers: {'X-CSRF-Token': $('meta[name=csrf_token]').attr('content')}
+	});
 	// $("input[type='checkbox']").on("change", function() {
 	// 	alert("Change to " + this.value);
 	// });
