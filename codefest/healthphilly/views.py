@@ -16,7 +16,7 @@ def about(request):
     template = loader.get_template('about.html')
 
     if not Location.objects.filter(tag="condoms"):
-        parsefile("healthphilly/condom_distribution_sites.csv")
+        parsefile("healthphilly/Condom_distribution_sites.csv")
     if not Location.objects.filter(tag="CRC"):
         parsefile("healthphilly/Healthy_Start_CRCs.csv")
     if not Location.objects.filter(tag="WIC"):
