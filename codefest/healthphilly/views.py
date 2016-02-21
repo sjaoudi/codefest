@@ -30,6 +30,30 @@ def searchpage(request):
     
 
     return render(request, 'listing.html', {'jsonobj': jsonobj})
+
+class SearchView(View):
+    def get(self, request):
+        print dir(request.POST)
+        parsefile("healthphilly/condom_distribution_sites.csv")
+
+        all_locations = Location.objects.all()
+        condom_distributors = all_locations.filter(tag="condoms")
+        healthystart = all_locations.filter(tag="CRC")
+        wic_office = all_locations.filter(tag="WIC")
+        
+        jsonobj = {}
+        jsonobj['condom_distributors'] = condom_distributors
+        jsonobj['healthystart'] = healthystart
+        jsonobj['wic_office'] = wic_office
+
+        return render(request, 'search.html', {'jsonobj': jsonobj})
+
+    def post(self, request):
+        clicked_obj = request.POST.get("strID")
+        is_checked = request.POST.get("state")
+
+        print is_checked
+
 """
     locations = {}
     for location in Location.objects.all():
