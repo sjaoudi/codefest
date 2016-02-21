@@ -1,0 +1,40 @@
+﻿X,Y,OBJECTID,NAME,CITY,STATE,ZIP,PHONE,PHONE2,SPECIAL_FOCUS,SPECIAL_HOURS,FULL_ADDRESS
+-75.209062933417002,39.948781441460831,1,District Health Center #3,Philadelphia,PA,19104,215-685-7504,,,,555 South 43rd Street
+-75.210940882575997,39.962545114160733,2,District Health Center #4,Philadelphia,PA,19104,215-685-7600,,,,4400 Haverford Avenue
+-75.225196023934046,39.965281532310641,3,"Spectrum Health Services, Inc.",Philadelphia,PA,19139,215-471-2761,,,,5201 Haverford Avenue
+-75.229700334074593,39.928770010781037,4,The Health Annex,Philadelphia,PA,19142,215-727-4721,,,,6120-B Woodland Avenue 2nd Floor
+-75.193451822938371,39.950505523422116,5,The MacGregor Clinic at the Hospital of the University of Pennsylvania,Philadelphia,PA,19104,215-662-6932,,,,3400 Spruce Street Silverstein Pavilion 3rd Floor
+-75.200510850592167,39.959241554402709,6,Penn Community Practice,Philadelphia,PA,19104,215-662-9908,,,,3910 Powelton Avenue 2nd Floor
+-75.214514221008642,39.939434302152065,7,Woodland Avenue Health Center,Philadelphia,PA,19143,215-726-9807,,,,5000 Woodland Avenue
+-75.17151190788698,40.016834873986674,8,Abbottsford Falls,Philadelphia,PA,19144,215-843-9720,,,,4700 Wissahickon Avenue Suite 119
+-75.172742068088681,40.037878520636283,9,District Health Center #9,Philadelphia,PA,19144,215-685-5702,,,,131 East Chelten Avenue
+-75.144583070530587,40.036936611938515,10,Albert Einstein Medical Center,Philadelphia,PA,19141,215-456-3465,,,,5501 Old York Road
+-75.163629890284753,39.958286999764503,11,Partnership Comprehensive Care Practice at the Drexel University School of Medicine,Philadelphia,PA,19102,215-762-02530,,,,1427 Vine Street 2nd Floor
+-75.157721995410796,39.950136722141735,12,Jefferson University Infectious Diseases,Philadelphia,PA,19107,215-955-7785,,,,1015 Chestnut Street Suite 1020
+-75.193843491499081,39.956069176637868,13,The Childrens Hospital of Philadelphia Adolescent Initiative,Philadelphia,PA,19104,215-590-3626,,Patients 12 to 24 years of age,,3550 Market Street 4th Floor
+-75.193843491499081,39.956069176637868,14,The Childrens Hospital of Philadelphia Special Immunology Family Care Center,Philadelphia,PA,19104,215-590-2956,,Patients 0 to 24 years of age,,3550 Market Street 5th Floor
+-75.126023859207734,40.007498202872526,15,Dorothy Mann Center for Pediatric and Adolescent HIV at St. Christophers Hospital for Children,Philadelphia,PA,19134,215-427-5284,,Patients 0 to 24 years of age,,160 East Erie Avenue
+-75.155023969958592,39.94706264820816,16,Mazzoni Center Family and Community Medicine,Philadelphia,PA,19107,215-563-0658,,Patients 12 to 24 years of age,Youth Drop-in only on Wednesdays from 5pm to 7pm,809 Locust Street
+-75.161796062664678,39.947912393829753,17,Johnathan Lax Treatment Center,Philadelphia,PA,19107,215-790-1788,,,,1233 Locust Street Suite 500
+-75.153631680739878,39.945566303112862,18,J. Edwin Wood Clinic at Pennsylvania Hospital,Philadelphia,PA,19106,215-829-3521,,,,700 Spruce Street Suite 300
+-75.13539371160077,39.993066351162625,19,Congreso Health Center,Philadelphia,PA,19133,267-765-227,,,,216 West Somerset Street 2nd Floor
+-75.145414493604932,40.025833736868066,20,Cooke Family Health Center,Philadelphia,PA,19141,215-457-6902,,,,1300 West Louden Street
+-75.166771319486244,39.983110563253241,21,District Health Center #5,Philadelphia,PA,19121,215-685-2933,,,,1900 North 20th Street
+-75.141950491351693,39.969914525527308,22,District Health Center #6,Philadelphia,PA,19123,215-685-3803,,,,321 West Girard Avenue
+-75.136859654383144,40.019107175085757,23,Esperanza Health Center - Hunting Park,Philadelphia,PA,19140,215-302-3600,,,,4417 North 6th Street
+-75.1143429301342,39.996034930936823,24,Esperanza Health Center,Philadelphia,PA,19134,215-831-1100,,,,3156 Kensington Avenue
+-75.139377992509196,39.996141856601945,25,Esperanza Health Center - 5th Street,Philadelphia,PA,19133,215-221-6633,,,,2940 North 5th Street
+-75.161411039978645,39.967025897357665,26,Fairmount Primary Care Center,Philadelphia,PA,19130,215-235-9600,,,,1412 Fairmount Avenue
+-75.134591079213578,39.981827228671079,27,Kensington Hospital,Philadelphia,PA,19122,215-426-8100,,,,136 Diamond Street
+-75.136458490024694,39.999543426506776,28,Maria de los Santos Health Center,Philadelphia,PA,19133,215-291-2500,,,,401-455 West Allegheny Avenue
+-75.164556353282379,39.978432807278161,29,Meade Family Health Center,Philadelphia,PA,19121,215-765-9501,,,,1600 North 18th Street
+-75.158965830673154,39.9591642734026,30,PHMC Care Clinic,Philadelphia,PA,19123,215-825-8220,,,,1200 Callowhill Street Suite 101
+-75.172476044845226,39.996332790190387,31,Quality Community Health Care,Philadelphia,PA,19132,215-227-0300,,,,2501 West Lehigh Avenue
+-75.179070783473662,39.990839522533683,32,Strawberry Mansion District Health Center,Philadelphia,PA,19132,215-685-2401,,,,2840 West Dauphin Street
+-75.150663438607978,40.004451905812012,33,Temple University Comprehensive HIV Program,Philadelphia,PA,19140,215-707-2401,,,,1316 West Ontario Street Jones Hall 1st Floor
+-75.061287622212646,40.048364505449577,34,District Health Center #10,Philadelphia,PA,19149,215-685-0639,,,,2230 Cottman Avenue
+-75.086135600859961,40.01422279070762,35,Frankford Avenue Health Center,Philadelphia,PA,19124,215-744-1302,888-296-4742,,,4510 Frankford Avenue
+-75.169331758965583,39.926643567585749,36,District Health Center #2,Philadelphia,PA,19145,215-685-1803,,,,1900 South Broad Street Constitution Health Plaza
+-75.157158337490301,39.935916765359849,37,Southeast Health Center,Philadelphia,PA,19147,215-339-5100,,,,800 Washington Avenue
+-75.168030216408624,39.932635546404335,38,Urban Solutions,Philadelphia,PA,19146,215-755-0700,,,,1408 South Broad Street 2nd Floor
+-75.188233653963962,39.926709720573619,39,Wilson Park Medical Center,Philadelphia,PA,19145,215-755-7700,,,,2520 Snyder Avenue
