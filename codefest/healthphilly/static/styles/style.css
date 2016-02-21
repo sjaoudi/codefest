@@ -28,3 +28,11 @@
 .searchy .btn-lg {
   margin-top: 1em;
 }
+.right {
+  text-align:right;
+  border-top: 1px solid #596a7b;
+}
+.left {
+  text-align: left;
+  border-top: 1px solid #596a7b;
+}

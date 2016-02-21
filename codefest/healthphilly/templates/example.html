@@ -1,0 +1,9 @@
+{% for c_dist in jsonobj['condom_distributors'] %}
+	<li>{{ c_dist.longitude }}</li>
+	<li>{{ c_dist.latitude }}</li>
+	<li>{{ c_dist.site_name }}</li>
+	<li>{{ c_dist.phone_number }}</li>
+	<li>{{ c_dist.hours }}</li>
+	<li>{{ c_dist.address }}</li>
+	<li>{{ c_dist.zipcode }}</li>
+{% endfor %}
