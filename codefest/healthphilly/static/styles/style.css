@@ -1,8 +1,27 @@
 
-.jumbotron {
-   background-image: url('/static/img/leaf.jpg');
-   background-size: cover;
-   color: white;
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.full-bg {
+  height: 100%;
+  width: 100%;
+  background-image: url('/static/img/leftloveedit.jpg');
+  background-size: cover;
+  min-height: 100%;
+  color: white;
+}
+.space {
+  width: 70%;
+  float:right;
+}
+.top {
+  text-align: right;
+  background-color: transparent;
+}
+.jumbotron .middle {
+  padding: 2em;
 }
 .navbar {
   margin-bottom: 0;
@@ -27,4 +46,12 @@
 }
 .searchy .btn-lg {
   margin-top: 1em;
+}
+.right {
+  text-align:right;
+  border-top: 1px solid #596a7b;
+}
+.left {
+  text-align: left;
+  border-top: 1px solid #596a7b;
 }
