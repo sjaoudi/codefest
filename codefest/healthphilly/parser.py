@@ -70,7 +70,7 @@ def parse_healthystart(reader):
                         longitude=row[0],
                         latitude=row[1],
                         #object_id=row[2],
-                        facility_name=row[3],
+                        site_name=row[3],
                         address=row[4],
                         #city=row[7],
                         #state=row[6],
