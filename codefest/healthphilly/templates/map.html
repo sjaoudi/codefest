@@ -1,17 +1,19 @@
+
+
 {% load leaflet_tags %}
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="maps.css">
     {% leaflet_js %}
     {% leaflet_css %}
-    
+
 </head>
 <body>
     <script type="text/javascript">
         function main_map_init (map, options) {
             // leaflet api here
             map.setView([39.954683, -75.14735], 13);
-            //L.marker([50.5, 30.5]).addTo(map); 
+            //L.marker([50.5, 30.5]).addTo(map);
             {% for loc in locations %}
             L.marker([{{loc.latitude}}, {{loc.longitude}}], {riseOnHover: true}).addTo(map)
                 .bindPopup("<b>{{loc.site_name}}</b><br>{{loc.hours}}")
