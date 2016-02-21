@@ -1,9 +1,11 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader, RequestContext
 from django.shortcuts import render_to_response
 from django.views.generic.base import View
 from django.core import serializers
+
 
 from .parser import parsefile, parse_condoms, parse_healthystart
 from .models import Location
@@ -47,9 +49,10 @@ def searchpage(request):
 
     return render(request, 'listing.html', {'jsonobj': jsonobj})
 
+
 class SearchView(View):
     def get(self, request):
-
+        print "IN GET!"
         all_locations = Location.objects.all()
         condom_distributors = all_locations.filter(tag="condoms")
         healthystart = all_locations.filter(tag="CRC")
@@ -63,26 +66,30 @@ class SearchView(View):
         return render(request, 'search.html', {'jsonobj': jsonobj})
 
     def post(self, request):
+        print "IN POST"
         clicked_obj = request.POST.get("strID")
         is_checked = request.POST.get("state")
 
-        # context = {}
-        # if clicked_obj == "condom":
-        #     condom_distributors = Location.objects.all()
-        #     context["locations"] = condom_distributors
-        #     # if is_checked == "1":
-        #     #     context["add"] = True
-        #     # else:
-        #     #     context["add"] = False
+        context = {}
+        if clicked_obj == "condom":
+            condom_distributors = Location.objects.all()
+            context["locations"] = condom_distributors
+            if is_checked == "1":
+                context["add"] = True
+            else:
+                context["add"] = False
 
-        #     request_context = RequestContext(request, context)
-        # template = loader.get_template('map.html')
         locations = Location.objects.all()
         context = RequestContext(request, {
             'locations': locations,
         })
-        return render_to_response('search.html', context_instance = context)
+        print context
+
         
+        return render(request, 'search.html', context)
+        # return render(request, 'search.html', context)
+
+
         # return render_to_response('search.html', context_instance = request_context)
         #print clicked_obj
 

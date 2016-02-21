@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	console.log("listening!");
+	
 	// $("input[type='checkbox']").on("change", function() {
 	// 	alert("Change to " + this.value);
 	// });
@@ -10,20 +11,43 @@ $(document).ready(function() {
 		if ($(this).is(":checked")) {
 			console.log("checked");
 			$.ajax({
-				url: 'search',
+				url: '/search.html',
 				type: 'POST',
-				data: { "strID":hitID, "state":"1" }
+				data: { "strID": hitID, "state": "1" }
 			});
 		} else {
 			console.log("unchecked");
 			$.ajax({
-				url: 'search',
+				url: '/search/',
 				type: 'POST',
-				data: { "strID":hitID, "state":"0" }
+				data: { "strID":hitID, "state":"0" },
+				success : function(json) {
+					console.log("gets here");
+                	successFunc(json);
+				},
+				error : function(xhr, errmsg, err) {
+					console.log("ERROR");
+               		errorFunc(xhr,errmsg,err);
+				}
 			});
 		}
 	});
 
+	function successFunc(json) {
+	 	if (json.add == true){
+	 		for (loc in json.locations){
+	 			$("#list-data").append("<h1>"+loc.site_name+"</h1>");
+	 		}
+	 		
+	 	}
+	 
+	}
+
+	function errorFunc(xhr,errmsg,err){
+		alert("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                    " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+	}
 	// This function gets cookie with a given name
     function getCookie(name) {
         var cookieValue = null;
