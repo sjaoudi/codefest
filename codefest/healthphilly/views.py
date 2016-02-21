@@ -19,16 +19,17 @@ def searchpage(request):
     parsefile("healthphilly/condom_distribution_sites.csv")
 
     all_locations = Location.objects.all()
-    condom_distributors = all_locations.filter(tag="condom_distributor")
-    healthystart = all_locations.filter(tag="healthystart")
-    wic_office = all_locations.filter(tag="wic_office")
+    condom_distributors = all_locations.filter(tag="condoms")
+    healthystart = all_locations.filter(tag="CRC")
+    wic_office = all_locations.filter(tag="WIC")
     
     jsonobj = {}
     jsonobj['condom_distributors'] = condom_distributors
     jsonobj['healthystart'] = healthystart
     jsonobj['wic_office'] = wic_office
-     
-    return render(request, 'search.html', jsonobj)
+    
+
+    return render(request, 'listing.html', {'jsonobj': jsonobj})
 """
     locations = {}
     for location in Location.objects.all():
