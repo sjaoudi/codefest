@@ -55,22 +55,23 @@ class SearchView(View):
         clicked_obj = request.POST.get("strID")
         is_checked = request.POST.get("state")
 
-        # context = {}
-        # if clicked_obj == "condom":
-        #     condom_distributors = Location.objects.all()
-        #     context["locations"] = condom_distributors
-        #     # if is_checked == "1":
-        #     #     context["add"] = True
-        #     # else:
-        #     #     context["add"] = False
+        context = {}
+        if clicked_obj == "condom":
+            condom_distributors = Location.objects.all()
+            context["locations"] = condom_distributors
+            # if is_checked == "1":
+            #     context["add"] = True
+            # else:
+            #     context["add"] = False
 
-        #     request_context = RequestContext(request, context)
-        # template = loader.get_template('map.html')
-        locations = Location.objects.all()
-        context = RequestContext(request, {
-            'locations': locations,
-        })
-        return render_to_response('search.html', context_instance = context)
+        print context
+        request_context = RequestContext(request, context)
+        template = loader.get_template('map.html')
+        # locations = Location.objects.all()
+        # context = RequestContext(request, {
+        #     'locations': locations,
+        # })
+        return render_to_response('search.html', context_instance = request_context)
         
         # return render_to_response('search.html', context_instance = request_context)
         #print clicked_obj

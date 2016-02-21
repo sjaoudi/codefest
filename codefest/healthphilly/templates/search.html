@@ -191,12 +191,19 @@
 </div>
   <div class="col-md-6">
 
+<h1>HELLO</h1>
+{% for loc in locations %}
+  {{ loc }}
+{% endfor %}
+
     	<h1>Services in Your Area:</h1>
 	<script type="text/javascript">
         function main_map_init (map, options) {
             // leaflet api here
             map.setView([39.954683, -75.14735], 13);
             //L.marker([50.5, 30.5]).addTo(map);
+            <h1>HELLO</h1>
+            <h1>{{ locations }}</h1>
             {% for loc in locations %}
             <h1>{{loc.hours}}</h1>
             L.marker([{{loc.latitude}}, {{loc.longitude}}], {riseOnHover: true}).addTo(map)
