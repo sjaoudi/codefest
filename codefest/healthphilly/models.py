@@ -10,7 +10,7 @@ class Location(models.Model):
 	zipcode = models.CharField(default='', max_length=300)
 	tag = models.CharField(default='', max_length=300)
 	website = models.CharField(default='', max_length=300)
-	other = models.CharField(default='', max_length=290)
+	other = models.CharField(default='', max_length=290, null=True)
 
 	pub_date = models.DateTimeField('date published', auto_now_add=True)
 
