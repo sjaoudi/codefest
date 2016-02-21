@@ -19,4 +19,5 @@ codefest/settings.py
 *.pyc
 *.txt
 *.csv
+*.swp
 .DS_Store
