@@ -1,4 +1,8 @@
-.leaflet-container-default { 
+
+/*.leaflet-container-default {
     height: 1000px;
     position: absolute;
+}*/
+#map {
+  height: 100%;
 }
