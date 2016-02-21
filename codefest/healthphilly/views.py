@@ -63,7 +63,8 @@ class SearchView(View):
         jsonobj['healthystart'] = healthystart
         jsonobj['wic_office'] = wic_office
 
-        return render(request, 'search.html', {'jsonobj': jsonobj})
+        #return render(request, 'search.html', {'jsonobj': jsonobj})
+        return render(request, 'search.html', {'locations': all_locations})
 
     def post(self, request):
         print "IN POST"

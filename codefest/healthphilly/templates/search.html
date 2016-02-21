@@ -193,23 +193,42 @@
 </div>
   <div class="col-md-6">
 
-
-{% for loc in locations %}
-  <h1>hello</h1>
-  {{ loc }}
-{% endfor %}
-
-    	<h1>Services in Your Area:</h1>
-	<!-- <script type="text/javascript">
+    <h1>Services in Your Area:</h1>
+	<script type="text/javascript">
         function main_map_init (map, options) {
             // leaflet api here
-            map.setView([39.954683, -75.14735], 13);
+            map.setView([39.991797, -75.154723], 13);
             //L.marker([50.5, 30.5]).addTo(map);
 
-            {{ locations }}
             {% for loc in locations %}
-            {% csrf_token %}
-            L.marker([{{loc.latitude}}, {{loc.longitude}}], {riseOnHover: true}).addTo(map)
+            var color;
+            if ("{{loc.tag}}" == "condoms") {
+                color = "blue"
+            }
+            if ("{{loc.tag}}" == "CRC") {
+                color = "green"
+            }                                   
+            if ("{{loc.tag}}" == "HIV") {   
+                 color = "yellow"                  
+            }                       
+            if ("{{loc.tag }}" == "health_center") {
+                color = "orange"
+            }
+            if ("{{loc.tag}}" == "planned_parenthood") {
+                color = "darkblue"
+            }
+            if ("{{loc.tag}}" == "assault") {
+                color = "red"
+            }
+            
+            var coloredMarker = L.AwesomeMarkers.icon({
+                    icon: 'coffee',
+                    markerColor: color,
+            });
+
+
+            L.marker([{{loc.latitude}}, {{loc.longitude}}], {riseOnHover: true, icon: coloredMarker})
+                .addTo(map)
                 .bindPopup("<b>{{loc.site_name}}</b><br>{{loc.hours}}")
                 .openPopup();
             {% endfor %}
@@ -222,11 +241,10 @@
                accessToken: 'pk.eyJ1Ijoic2phb3VkaTEiLCJhIjoiY2lrdmhnY2J0MDBnN3VnbTNweWh4aDJnZyJ9.wPHcHOABvXHGEM2CsQvZgQ'
             }).addTo(map);
         }
-    	</script> -->
+    	</script>
 
-    	<!-- <div id="map"></div>
-
-	    {% leaflet_map "main" callback="main_map_init" %} -->
+    	<div id="map"></div>
+	    {% leaflet_map "main" callback="main_map_init" %}
 
     	<div class="result" id="list-data">
     		<h3>Listings:</h3>
@@ -240,7 +258,7 @@
         </tr>
       </thead>
       <tbody>
-    		{% for location in locations %}
+        {% for location in locations %}
           {% if location.tag == "condoms"%}
           <tr class="info">
           {% elif location.tag == "CRC" %}
@@ -256,7 +274,7 @@
           {% else %}
           <tr>
           {% endif %}
-            <td> <a href="/">{{ location.site_name }}</a></td>
+            <td>{{ location.site_name }}</td>
             <td>{{ location.address }}</td>
             <td>{{ location.phone_number }}</td>
             <td>{{ location.zipcode }}</td>
