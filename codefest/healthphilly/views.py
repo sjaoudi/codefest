@@ -14,6 +14,20 @@ def index(request):
 
 def about(request):
     template = loader.get_template('about.html')
+
+    if not Location.objects.filter(tag="condoms"):
+        parsefile("healthphilly/condom_distribution_sites.csv")
+    if not Location.objects.filter(tag="CRC"):
+        parsefile("healthphilly/Healthy_Start_CRCs.csv")
+    if not Location.objects.filter(tag="WIC"):
+        parsefile("healthphilly/WIC_Offices.csv")
+    if not Location.objects.filter(tag="HIV"):
+        parsefile("healthphilly/RW_HIV_Treatment_Centers.csv")
+    if not Location.objects.filter(tag="assault"):
+        parsefile("healthphilly/Assault.csv")
+    if not Location.objects.filter(tag="planned_parenthood"):
+        parsefile("healthphilly/Planned_Parenthood.csv")
+
     return HttpResponse(template.render(request))
 
 def searchpage(request):
@@ -35,9 +49,6 @@ def searchpage(request):
 
 class SearchView(View):
     def get(self, request):
-
-        if not Location.objects.filter(tag="condoms"):
-            parsefile("healthphilly/condom_distribution_sites.csv")
 
         all_locations = Location.objects.all()
         condom_distributors = all_locations.filter(tag="condoms")
