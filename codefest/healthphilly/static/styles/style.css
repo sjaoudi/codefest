@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'OpenDyslexia';
+    src: url('fonts/open_dyslexic/OpenDyslexic-Regular.otf');
+}
 
 html, body {
   height: 100%;
@@ -70,4 +74,7 @@ html, body {
 .wrapper {
   width: 60%;
   margin:auto;
+}
+.dys {
+  font-family: 'OpenDyslexia';
 }
