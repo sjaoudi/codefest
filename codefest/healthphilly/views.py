@@ -4,6 +4,7 @@ from django.template import loader, RequestContext
 from django.shortcuts import render_to_response
 from django.views.generic.base import View
 from django.core import serializers
+# from .forms import SearchForm
 
 from .parser import parsefile, parse_condoms, parse_healthystart
 from .models import Location
@@ -14,6 +15,20 @@ def index(request):
 
 def about(request):
     template = loader.get_template('about.html')
+
+    if not Location.objects.filter(tag="condoms"):
+        parsefile("healthphilly/condom_distribution_sites.csv")
+    if not Location.objects.filter(tag="CRC"):
+        parsefile("healthphilly/Healthy_Start_CRCs.csv")
+    if not Location.objects.filter(tag="WIC"):
+        parsefile("healthphilly/WIC_Offices.csv")
+    if not Location.objects.filter(tag="HIV"):
+        parsefile("healthphilly/RW_HIV_Treatment_Centers.csv")
+    if not Location.objects.filter(tag="assault"):
+        parsefile("healthphilly/Assault.csv")
+    if not Location.objects.filter(tag="planned_parenthood"):
+        parsefile("healthphilly/Planned_Parenthood.csv")
+
     return HttpResponse(template.render(request))
 
 def searchpage(request):
@@ -33,11 +48,9 @@ def searchpage(request):
 
     return render(request, 'listing.html', {'jsonobj': jsonobj})
 
+
 class SearchView(View):
     def get(self, request):
-
-        if not Location.objects.filter(tag="condoms"):
-            parsefile("healthphilly/condom_distribution_sites.csv")
 
         all_locations = Location.objects.all()
         condom_distributors = all_locations.filter(tag="condoms")
@@ -59,10 +72,10 @@ class SearchView(View):
         if clicked_obj == "condom":
             condom_distributors = Location.objects.all()
             context["locations"] = condom_distributors
-            # if is_checked == "1":
-            #     context["add"] = True
-            # else:
-            #     context["add"] = False
+            if is_checked == "1":
+                context["add"] = True
+            else:
+                context["add"] = False
 
         print context
         # request_context = RequestContext(request, context)
@@ -72,6 +85,7 @@ class SearchView(View):
         # })
         return render(request, 'search.html', context)
         
+
         # return render_to_response('search.html', context_instance = request_context)
         #print clicked_obj
 

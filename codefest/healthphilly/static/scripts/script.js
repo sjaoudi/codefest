@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	console.log("listening!");
-	$.ajaxSetup({
-   		headers: {'X-CSRF-Token': $('meta[name=csrf_token]').attr('content')}
-	});
+	
 	// $("input[type='checkbox']").on("change", function() {
 	// 	alert("Change to " + this.value);
 	// });
@@ -15,18 +13,34 @@ $(document).ready(function() {
 			$.ajax({
 				url: 'search',
 				type: 'POST',
-				data: { "strID":hitID, "state":"1" }
+				data: { "strID": hitID, "state": "1" }
 			});
 		} else {
 			console.log("unchecked");
 			$.ajax({
 				url: 'search',
 				type: 'POST',
-				data: { "strID":hitID, "state":"0" }
+				data: { "strID":hitID, "state":"0" },
+				success : function(json) {
+					console.log("gets here");
+                	successFunc(json);
+				},
+				error : function(xhr, errmsg, err) {
+					console.log("ERROR");
+               		// errorFunc(xhr,errmsg,err);
+				}
 			});
 		}
 	});
 
+	function successFunc(json) {
+	 	if (json.add == true){
+	 		$("#list-data")
+				.empty()
+				.append(json.locations);
+	 	}
+	 
+	}
 	// This function gets cookie with a given name
     function getCookie(name) {
         var cookieValue = null;
